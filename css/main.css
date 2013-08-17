@@ -63,20 +63,21 @@ textarea {
 
 #centerDiv {
   width: 100%;
-    
-/*   position: absolute; */
   text-align: center;
+  
+  font-family: 'Changa One', cursive;
+  font-weight: normal;
+  font-style: normal;
+}
+
+#centerDiv > a {
+  font-size: 28px;
 }
 
 
 h1 {
-  display: inline;
-  
   font-size: 110px;
-  font-family: 'Changa One', cursive;
-  font-weight: normal;
-  font-style: normal;
-
+  display: inline;
   margin: auto;
   vertical-align: middle;
 }
