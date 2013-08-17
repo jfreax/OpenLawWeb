@@ -13,6 +13,7 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
+    background-color:#609873;
 }
 
 ::-moz-selection {
@@ -60,19 +61,25 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#centerDiv {
+  width: 100%;
+    
+/*   position: absolute; */
+  text-align: center;
+}
 
 
+h1 {
+  display: inline;
+  
+  font-size: 110px;
+  font-family: 'Changa One', cursive;
+  font-weight: normal;
+  font-style: normal;
 
-
-
-
-
-
-
-
-
-
-
+  margin: auto;
+  vertical-align: middle;
+}
 
 /* ==========================================================================
    Media Queries
