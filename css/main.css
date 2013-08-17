@@ -71,7 +71,9 @@ textarea {
 }
 
 #centerDiv > a {
-  font-size: 28px;
+  font-size: 32px;
+  color: #1f272a;
+  text-decoration: none;
 }
 
 
@@ -79,7 +81,7 @@ h1 {
   font-size: 110px;
   display: inline;
   margin: auto;
-  vertical-align: middle;
+  font-weight: normal;
 }
 
 /* ==========================================================================
