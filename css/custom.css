@@ -107,19 +107,19 @@ body {
 }
 
 .phone-slide_nav.prev {
-        margin-left: 28px;
+        margin-left: 38px;
 }
 
 .phone-slide_nav.next {
         left: auto;
         background-position: right top;
         right: 0;
-        margin-right: 28px;
+        margin-right: 38px;
 }
 
 .rslides_container {
         position: relative;
-        height: 375px;
+        height: 520px;
         margin: 0 auto;
 }
 
