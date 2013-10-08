@@ -53,13 +53,3 @@ body {
 .text-white {
         color: #fff;
 }
-
-[class*="span"] {
-        float: left;
-        min-height: 1px;
-        margin-left: 30px;
-}
-
-.span4 {
-        width: 360px;
-}
