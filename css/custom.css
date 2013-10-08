@@ -80,9 +80,27 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
 
 
 /* 
+ * Phone frame
+ */
+#phone-frame {
+        width: 360px;
+        padding: 10px 10px 10px 10px;
+}
+
+#phone-inner {
+        position: absolute;
+        top: 75px;
+        left: 62px;
+        width: 267px;
+}
+
+
+/* 
  * Animation
  */
-.fadeIn { opacity:0; filter:alpha(opacity=0); }
+.fadeIn { 
+        opacity:0; filter:alpha(opacity=0);
+}
 
 /* 
  * Custom buttons
@@ -124,9 +142,8 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
         
         height: 61px;
         width: 38px;
-        top: 100%;
+        top: 40%;
         left: 0;
-        margin-top: -45px;
         
         overflow: hidden;
         text-indent: -9999px;
@@ -138,14 +155,12 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
 }
 
 .phone-slide_nav.prev {
-        margin-left: 38px;
 }
 
 .phone-slide_nav.next {
         left: auto;
         background-position: right top;
         right: 0;
-        margin-right: 38px;
 }
 
 .rslides_container {

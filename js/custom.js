@@ -5,7 +5,8 @@ $("#slider").responsiveSlides({
         nav: true,
         speed: 500,
         timeout: 10000,
-        namespace: "phone-slide"
+        namespace: "phone-slide",
+        navContainer: "#phone-holder"
 });
 
 // Green seperator
