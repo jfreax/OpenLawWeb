@@ -18,13 +18,15 @@ body {
         -webkit-animation: animatedBackground 1s ease-in-out;
         
         background-color: #f9f9f9;
+        
+        border-bottom: 15px solid #1abc9c;
 }
 
 .wrapper {
         min-height: 620px;
         box-sizing: border-box;
         position: relative;
-        padding: 60px 0;
+        padding: 40px 0;
 }
 
 .anchor {
@@ -46,4 +48,18 @@ body {
         height: 65px;
         width: 200px;
         border: 0;
+}
+
+.text-white {
+        color: #fff;
+}
+
+[class*="span"] {
+        float: left;
+        min-height: 1px;
+        margin-left: 30px;
+}
+
+.span4 {
+        width: 360px;
 }
