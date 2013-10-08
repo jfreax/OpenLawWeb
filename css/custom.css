@@ -34,6 +34,10 @@ body {
         top: -80px;
 }
 
+.feature {
+  padding-top: 12px;
+}
+
 .bg-black {
         background-color: #000;
 }
