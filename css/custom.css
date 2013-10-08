@@ -8,23 +8,62 @@ body {
 }
 
 .home {
-
         animation: animatedBackground 1s ease-in-out;
         -ms-animation: animatedBackground 1s ease-in-out;
         -moz-animation: animatedBackground 1s ease-in-out;
         -webkit-animation: animatedBackground 1s ease-in-out;
         
         background-color: #f9f9f9;
-        min-height: 553px;
 }
+
+@media (min-width: 0px) {
+  .home {
+        height: 430px;
+  }
+.home-bg {
+        height: 430px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home {
+        height: 445px;
+  }
+.home-bg {
+        height: 445px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home {
+        height: 515px;
+  }
+.home-bg {
+        height: 515px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home {
+        height: 580px;
+  }
+.home-bg {
+        height: 580px;
+  }
+}
+
 
 .home-bg {
         background-image: url('../img/nexus10_half.png');
-        background-position: center top;
+        background-position: center bottom;
         background-repeat: no-repeat;
+        
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
                 
         width: 1170px;
-        min-height: 553px;
 
         background-position: center bottom;
         

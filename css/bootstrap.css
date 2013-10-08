@@ -1003,6 +1003,12 @@ pre code {
   width: 100%;
 }
 
+@media (min-width: 368px) {
+  .container {
+    max-width: 350px;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 750px;
