@@ -26,7 +26,7 @@ body {
         width: 1170px;
         height: 363px;
         
-        margin-top: 40px;
+        margin-top: 20px;
 }
 
 .main {
@@ -35,7 +35,7 @@ body {
 }
 
 .wrapper {
-        min-height: 585px;
+        min-height: 553px;
         box-sizing: border-box;
         position: relative;
         padding: 40px 0;
@@ -47,8 +47,9 @@ body {
 }
 
 .feature {
-  padding-top: 12px;
+        padding-top: 12px;
 }
+
 
 .bg-black {
         background-color: #000;
@@ -71,6 +72,27 @@ body {
 
 .text-white {
         color: #fff;
+}
+
+/* 
+ * Custom buttons
+ */
+
+.btn-download {
+        color: #ffffff;
+        background-color: #18bc9c;
+        border: 1px solid #149c82;
+        vertical-align:middle;
+}
+
+.btn-download:hover,
+.btn-download:focus,
+.btn-download:active,
+.btn-download.active,
+.open .dropdown-toggle.btn-download {
+        color: #ffffff;
+        background-color: #13987e;
+        border-color: #11866f;
 }
 
 /* 
