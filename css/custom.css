@@ -8,9 +8,6 @@ body {
 }
 
 .home {
-        background-image: url('../img/nexus10_half.png');
-        background-position: center bottom;
-        background-repeat: no-repeat;
 
         animation: animatedBackground 1s ease-in-out;
         -ms-animation: animatedBackground 1s ease-in-out;
@@ -18,12 +15,27 @@ body {
         -webkit-animation: animatedBackground 1s ease-in-out;
         
         background-color: #f9f9f9;
+        z-index: -10;
+}
+
+.home-bg {
+        background-image: url('../img/nexus10_half.png');
+        background-position: center top;
+        background-repeat: no-repeat;
         
-        border-bottom: 15px solid #1abc9c;
+        width: 1170px;
+        height: 363px;
+        
+        margin-top: 40px;
+}
+
+.main {
+        background-color: #149c82;
+        border-top: 15px solid #1abc9c;
 }
 
 .wrapper {
-        min-height: 620px;
+        min-height: 585px;
         box-sizing: border-box;
         position: relative;
         padding: 40px 0;
