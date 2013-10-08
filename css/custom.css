@@ -5,6 +5,8 @@ body {
         -webkit-animation: animatedBody 1s linear;
         
         font-family: 'Changa One', cursive;
+        
+        background-color: #149c82;
 }
 
 .home {
@@ -15,18 +17,19 @@ body {
         -webkit-animation: animatedBackground 1s ease-in-out;
         
         background-color: #f9f9f9;
-        z-index: 0;
 }
 
 .home-bg {
         background-image: url('../img/nexus10_half.png');
         background-position: center top;
         background-repeat: no-repeat;
-        
+                
         width: 1170px;
-        height: 363px;
+        min-height: 553px;
+
+        background-position: center bottom;
         
-        margin-top: 20px;
+        z-index: 0;
 }
 
 .main {
