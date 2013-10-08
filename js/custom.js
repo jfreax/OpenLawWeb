@@ -8,7 +8,7 @@ $("#slider").responsiveSlides({
         namespace: "phone-slide"
 });
 
-
+// Green seperator
 $.fn.followTo = function (pos, height) {
     var $this = this,
         $window = $(window);
@@ -38,3 +38,10 @@ $('#features').followTo(
   $('#head').outerHeight() - $('#header').outerHeight(),
   $('#features').outerHeight()
 );
+
+// Inview
+$('.fadeIn').bind('inview', function(event, visible) {
+      if (visible) {
+        $(this).stop().animate({ opacity: 1 }, 600);
+      }
+});
