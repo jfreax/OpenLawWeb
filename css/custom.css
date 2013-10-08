@@ -33,6 +33,10 @@ body {
 .main {
         background-color: #149c82;
         border-top: 15px solid #1abc9c;
+        
+        -webkit-box-shadow: 0 7px 0 rgba(0,0,0,.1);
+-moz-box-shadow: 0 7px 0 rgba(0,0,0,.1);
+box-shadow: 0 7px 0 rgba(0,0,0,.1);
 }
 
 .wrapper {

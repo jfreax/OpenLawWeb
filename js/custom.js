@@ -20,9 +20,16 @@ $.fn.followTo = function (pos, height) {
               'border-bottom': '15px solid #1abc9c'
             });
         } else {
-            $("#header").css({
-              'border-bottom': ''
-            });
+            var diff = 15 - (top - (pos+height));
+            if (top > pos+height && diff > 0) {
+              $("#header").css({
+                'border-bottom': (diff)+'px solid #1abc9c'
+              });
+            } else {
+              $("#header").css({
+                'border-bottom':''
+              });
+            }
         }
     });
 };
