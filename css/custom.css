@@ -1,0 +1,49 @@
+body {
+        animation: animatedBody 1s linear;
+        -ms-animation: animatedBody 1s linear;
+        -moz-animation: animatedBody 1s linear;
+        -webkit-animation: animatedBody 1s linear;
+        
+        font-family: 'Changa One', cursive;
+}
+
+.home {
+        background-image: url('../img/nexus10_half.png');
+        background-position: center bottom;
+        background-repeat: no-repeat;
+
+        animation: animatedBackground 1s ease-in-out;
+        -ms-animation: animatedBackground 1s ease-in-out;
+        -moz-animation: animatedBackground 1s ease-in-out;
+        -webkit-animation: animatedBackground 1s ease-in-out;
+        
+        background-color: #f9f9f9;
+}
+
+.wrapper {
+        min-height: 620px;
+        box-sizing: border-box;
+        position: relative;
+        padding: 60px 0;
+}
+
+.anchor {
+        position: absolute;
+        top: -80px;
+}
+
+.bg-black {
+        background-color: #000;
+}
+
+.bg-green {
+        background-color: #149c82;
+}
+
+.btn-android {
+        display: inline-block;
+        background: url('../img/android-app-on-google-play-logo.png') no-repeat;
+        height: 65px;
+        width: 200px;
+        border: 0;
+}
