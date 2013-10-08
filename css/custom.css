@@ -62,7 +62,8 @@ body {
         -moz-background-size: contain;
         -o-background-size: contain;
         background-size: contain;
-                
+
+        position: fixed;
         width: 1170px;
 
         background-position: center bottom;
