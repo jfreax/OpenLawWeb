@@ -74,7 +74,12 @@
             </div>
           </div>
             <div class="col-lg-3 text-center">
-              <img class="phone-preview" src="img/smartphone.png" width="245" alt="Smartphone Screenshot">
+              <div class="rslides_container">
+                <ul class="rslides phone-slide phone-slide1" id="slider">
+                  <li id="phone-slide1_s0" class="phone-slide phone-slide1_on" style="z-index: 2;"><img src="img/smartphone.png" alt=""></li>
+                  <li id="phone-slide1_s1" class="phone-slide" style="z-index: 1;" class=""><img src="img/smartphone2.png" alt=""></li>
+                </ul><a href="#" class="phone-slide_nav phone-slide1_nav prev">Previous</a><a href="#" class="phone-slide_nav phone-slide1_nav next">Next</a>
+              </div>                                               
             </div>
             <div class="col-lg-4">
               <div class="feature">
@@ -118,5 +123,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script src="js/custom.js"></script>
   </body>
 </html>

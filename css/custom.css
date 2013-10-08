@@ -72,3 +72,90 @@ body {
 .text-white {
         color: #fff;
 }
+
+/* 
+ * Phone image slide
+ */
+.phone-slide {
+        display: list-item;
+        float: left;
+        position: relative;
+        opacity: 1;
+        transition: opacity 500ms ease-in-out;
+        -webkit-transition: opacity 500ms ease-in-out;
+}
+
+.phone-slide_nav {
+        position: absolute;
+        z-index: 10;
+        
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        
+        height: 61px;
+        width: 38px;
+        top: 100%;
+        left: 0;
+        margin-top: -45px;
+        
+        overflow: hidden;
+        text-indent: -9999px;
+        text-decoration: none;
+
+        background: transparent url("../img/themes.gif") no-repeat left top;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+}
+
+.phone-slide_nav.prev {
+        margin-left: 28px;
+}
+
+.phone-slide_nav.next {
+        left: auto;
+        background-position: right top;
+        right: 0;
+        margin-right: 28px;
+}
+
+.rslides_container {
+        position: relative;
+        height: 375px;
+        margin: 0 auto;
+}
+
+
+/* 
+ * Responsive slides
+ */
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
