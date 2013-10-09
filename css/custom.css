@@ -104,6 +104,21 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
         padding-top: 12px;
 }
 
+.btn-android {
+        display: inline-block;
+        background: url('../img/android-app-on-google-play-logo.png') no-repeat;
+        height: 65px;
+        width: 200px;
+        border: 0;
+}
+
+.helping > p {
+        margin: 0 0 22px;
+}
+
+/* 
+ * Color
+ */
 
 .bg-black {
         background-color: #000;
@@ -114,14 +129,6 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
 }
 .bg-lite {
         background-color: #f9f9f9;
-}
-
-.btn-android {
-        display: inline-block;
-        background: url('../img/android-app-on-google-play-logo.png') no-repeat;
-        height: 65px;
-        width: 200px;
-        border: 0;
 }
 
 .text-white {
