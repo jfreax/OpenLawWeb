@@ -65,6 +65,8 @@ body {
 
         position: fixed;
         width: 1170px;
+        left: 0;
+        right: 0;
 
         background-position: center bottom;
         
