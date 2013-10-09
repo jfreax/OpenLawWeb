@@ -153,13 +153,6 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
 
 
 /* 
- * Animation
- */
-.fadeIn { 
-        opacity:0; filter:alpha(opacity=0);
-}
-
-/* 
  * Custom buttons
  */
 .btn-download {

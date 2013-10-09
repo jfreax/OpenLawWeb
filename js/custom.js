@@ -66,6 +66,10 @@ function setupSeperator() {
 
 
 // Inview
+$('.fadeIn').css({
+  'opacity': 0,
+  'filter': 'alpha(opacity=0)'
+});
 $('.fadeIn').bind('inview', function(event, visible) {
       if (visible) {
           $(this).stop().animate({ opacity: 1 }, 600);
