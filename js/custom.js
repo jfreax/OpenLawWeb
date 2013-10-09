@@ -35,16 +35,26 @@ $.fn.followTo = function (pos, height) {
     });
 };
 
-setupSeperator();
-$(window).resize(function() {
-    setupSeperator();
+$( document ).ready(function() {
+  setupSeperator();
 });
 
+// Reset on window resize event
+$(window).resize(function() {
+  setupSeperator();
+});
+
+// Setup green seperator tracking
 function setupSeperator() {
+  var width = window.innerWidth;
+  if( width < 768 ) {
+    $('#features').followTo(0, 0);
+  } else {
     $('#features').followTo(
       $('#head').outerHeight() - $('#header').outerHeight(),
       $('#features').outerHeight()
     );
+  }
 }
 
 
