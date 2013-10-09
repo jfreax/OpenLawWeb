@@ -87,6 +87,14 @@ box-shadow: 0 7px 0 rgba(0,0,0,.1);
         position: relative;
 }
 
+.footer {
+        background-color: #313131;
+}
+
+.footer-text {
+        color: #f9f9f9;
+}
+
 .anchor {
         position: absolute;
         top: -80px;
