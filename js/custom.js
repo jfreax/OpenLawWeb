@@ -13,6 +13,14 @@ $("#slider").responsiveSlides({
 $.fn.followTo = function (pos, height) {
     var $this = this,
         $window = $(window);
+        
+    if( pos == -1 ) {
+        $("#header").css({
+            'border-bottom':''
+        });
+        $window.scroll(function (e) {});
+        return;
+    }
 
     $window.scroll(function (e) {
         var top = $window.scrollTop();
@@ -47,7 +55,7 @@ $(window).resize(function() {
 // Setup green seperator tracking
 function setupSeperator() {
     if( window.innerWidth <= 768 ) {
-        $('#features').followTo(0, 0);
+        $('#features').followTo(-1, -1);
     } else {
         $('#features').followTo(
             $('#head').outerHeight() - $('#header').outerHeight(),
