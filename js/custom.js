@@ -64,7 +64,6 @@ function setupSeperator() {
     }
 }
 
-
 // Inview
 $('.fadeIn').css({
   'opacity': 0,
@@ -74,4 +73,28 @@ $('.fadeIn').bind('inview', function(event, visible) {
       if (visible) {
           $(this).stop().animate({ opacity: 1 }, 600);
       }
+});
+
+// Touch events
+phone = $("#phone-holder").hammer();
+
+phone.on("dragstart", function(ev) {
+  ev.preventDefault();
+});
+
+
+phone.on("dragend", function(ev) {
+  var angle = ev.gesture.angle + 180;
+  var trigger = $(".phone-slide_nav"),
+      prev = trigger.filter(".prev"),
+      next = trigger.filter(".next");
+
+  if( angle > 150 && angle < 210 ) {
+    console.log("right");
+    next.trigger('click');
+  } else if ( angle < 30 || angle > 330 ) {
+    prev.trigger('click');
+  }
+  
+  ev.stopPropagation();
 });
