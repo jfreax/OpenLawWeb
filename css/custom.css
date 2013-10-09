@@ -43,7 +43,7 @@ body {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   .home {
         height: 580px;
   }
