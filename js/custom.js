@@ -35,10 +35,18 @@ $.fn.followTo = function (pos, height) {
     });
 };
 
-$('#features').followTo(
-  $('#head').outerHeight() - $('#header').outerHeight(),
-  $('#features').outerHeight()
-);
+setupSeperator();
+$(window).resize(function() {
+    setupSeperator();
+});
+
+function setupSeperator() {
+    $('#features').followTo(
+      $('#head').outerHeight() - $('#header').outerHeight(),
+      $('#features').outerHeight()
+    );
+}
+
 
 // Inview
 $('.fadeIn').bind('inview', function(event, visible) {
