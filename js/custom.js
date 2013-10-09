@@ -90,7 +90,6 @@ phone.on("dragend", function(ev) {
       next = trigger.filter(".next");
 
   if( angle > 150 && angle < 210 ) {
-    console.log("right");
     next.trigger('click');
   } else if ( angle < 30 || angle > 330 ) {
     prev.trigger('click');
