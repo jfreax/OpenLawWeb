@@ -20,7 +20,7 @@ body {
   .home {
         height: 430px;
   }
-.home-bg {
+  .home-bg {
         height: 430px;
   }
 }
@@ -29,7 +29,7 @@ body {
   .home {
         height: 445px;
   }
-.home-bg {
+  .home-bg {
         height: 445px;
   }
 }
@@ -38,17 +38,30 @@ body {
   .home {
         height: 515px;
   }
-.home-bg {
+  .home-bg {
         height: 515px;
   }
 }
 
 @media (min-width: 1100px) {
   .home {
-        height: 580px;
+        height: 560px;
   }
-.home-bg {
-        height: 580px;
+  .home-bg {
+        height: 560px;
+  }
+}
+
+.download-bar {
+        z-index: 0;
+        margin-top: 120px;
+}
+
+@media (min-height: 796px) {
+  .download-bar {
+          z-index: 1100;
+          padding-bottom: 20px;
+          margin-top: 120px;
   }
 }
 
@@ -78,8 +91,8 @@ body {
         border-top: 15px solid #1abc9c;
         
         -webkit-box-shadow: 0 7px 0 rgba(0,0,0,.1);
--moz-box-shadow: 0 7px 0 rgba(0,0,0,.1);
-box-shadow: 0 7px 0 rgba(0,0,0,.1);
+        -moz-box-shadow: 0 7px 0 rgba(0,0,0,.1);
+        box-shadow: 0 7px 0 rgba(0,0,0,.1);
 }
 
 .wrapper {

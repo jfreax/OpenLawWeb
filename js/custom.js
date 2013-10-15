@@ -10,12 +10,12 @@ $("#slider").responsiveSlides({
 });
 
 // Green seperator
-$.fn.followTo = function (pos, height) {
+$.fn.followTo = function (pos, height, id) {
     var $this = this,
         $window = $(window);
         
     if( pos == -1 ) {
-        $("#header").css({
+        id.css({
             'border-bottom':''
         });
         $window.scroll(function (e) {});
@@ -25,17 +25,17 @@ $.fn.followTo = function (pos, height) {
     $window.scroll(function (e) {
         var top = $window.scrollTop();
         if (top > pos && top < pos+height) {
-            $("#header").css({
+            id.css({
                 'border-bottom': '15px solid #1abc9c'
             });
         } else {
             var diff = 15 - (top - (pos+height));
             if (top > pos+height && diff > 0) {
-                $("#header").css({
+                id.css({
                     'border-bottom': (diff)+'px solid #1abc9c'
                 });
             } else {
-                $("#header").css({
+                id.css({
                     'border-bottom':''
                 });
             }
@@ -57,11 +57,20 @@ function setupSeperator() {
     if( window.innerWidth <= 768 ) {
         $('#features').followTo(-1, -1);
     } else {
+        var outerHeight = $('#header').outerHeight();
+        var id = $("#header");
+        if( window.innerHeight < 796 ) {
+        } else {
+            outerHeight += $('#download-header').outerHeight();
+            id = $("#download-header");
+        }
         $('#features').followTo(
-            $('#head').outerHeight() - $('#header').outerHeight(),
-            $('#features').outerHeight()
+            $('#head').outerHeight() - outerHeight,
+            $('#features').outerHeight(),
+            id
         );
     }
+    $(window).trigger("scroll");
 }
 
 // Inview
