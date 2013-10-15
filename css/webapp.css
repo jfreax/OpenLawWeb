@@ -1,0 +1,56 @@
+body {
+        font: bold 20px Helvetica, Arial, sans-serif;
+        margin: 0;
+        background: #ddd;
+}
+dl {
+        margin: 0;
+        min-height: 1px;
+        overflow: hidden;
+        padding: 24px 0 0 0;
+        position: relative;
+        margin: 12px 0 0 12px;
+
+}
+dt {
+        background: #fff;
+        color: #37b3f3;
+        padding: 2px 0 0 12px;
+        position: absolute;
+
+        bottom: auto;
+        min-height: 1px;
+        top: 0;
+        width: 100%;
+}
+
+dd {
+        background: #eee;
+        font: bold 20px/45px Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0 0 0 12px;
+        white-space: nowrap;
+}
+
+dl:first-child {
+        margin-top: 0;
+}
+
+dl:last-child {
+        margin-bottom: 12px;
+}
+
+dt:hover, dd:hover {
+        background: #37b3f3;
+}
+
+.listContainer {
+/*         height: 100%; */
+        width: 33%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        
+        margin: 12px 0 0 0;
+}
+ 
