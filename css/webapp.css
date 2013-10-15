@@ -40,7 +40,7 @@ dl:last-child {
         margin-bottom: 12px;
 }
 
-dt:hover, dd:hover {
+dd:hover {
         background: #37b3f3;
 }
 
