@@ -14,7 +14,9 @@ $( document ).ready(function() {
           dl = $('<dl/>').appendTo('.listContainer');
           dt = $('<dt/>', {text: firstLetter}).appendTo(dl);
         }
-        $('<dd/>', {text: results[law][0]}).appendTo(dl);
+        $('<dd/>', {
+          title: results[law][2]
+        }).append("<div>"+results[law][0]+"</div><div>"+results[law][2]+"</div>").appendTo(dl);
       }
   });
 
