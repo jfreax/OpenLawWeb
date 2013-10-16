@@ -8,7 +8,7 @@ $( document ).ready(function() {
       for (var law in results) {
         var short = results[law][0];
         
-        var firstLetter = short.substring(0, 1);
+        var firstLetter = getFirstLetter(short);
         if( firstLetter != lastChar) {
           lastChar = firstLetter;
           dl = $('<dl/>').appendTo('.listContainer');
@@ -18,6 +18,21 @@ $( document ).ready(function() {
       }
   });
 
-  
+  function getFirstLetter(str) {
+    first = str.substring(0, 1);
+    switch(first) {
+      case 'Ä':
+        return 'A';
+        break;
+      case 'Ö':
+        return 'Ö';
+        break;
+      case 'Ü':
+        return 'Ü';
+        break;
+      default:
+        return first;
+    }
+  }
 });
 
