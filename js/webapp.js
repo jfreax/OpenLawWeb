@@ -85,6 +85,9 @@ LawList.prototype.loadNext = function() {
 }
 
 
+/**
+ * Ready!
+ */
 $( document ).ready(function() {
   // Handle law code list
   var lawList = new LawList( 'http://127.0.0.1:5000', 200 );
@@ -94,9 +97,12 @@ $( document ).ready(function() {
 });
 
 
-
+/*
+ * Return first uppercase letter of string.
+ * Convert umlauts.
+ */
 function getFirstLetter(str) {
-  first = str.substring(0, 1);
+  first = str.substring(0, 1); //.toUpperCase();
   switch(first) {
     case 'Ä':
       return 'A';
@@ -112,14 +118,3 @@ function getFirstLetter(str) {
   }
 }
 
-// The .bind method from Prototype.js 
-if (!Function.prototype.bind) { // check if native implementation available
-  Function.prototype.bind = function(){ 
-    var fn = this, args = Array.prototype.slice.call(arguments),
-        object = args.shift(); 
-    return function(){ 
-      return fn.apply(object, 
-        args.concat(Array.prototype.slice.call(arguments))); 
-    }; 
-  };
-}
