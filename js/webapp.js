@@ -1,10 +1,22 @@
 $( document ).ready(function() {
+  var page = 0;
+  listAdapter(page);
+  
+  $(window).scroll(function() {
+    if ( $(window).scrollTop() >= $(document).height() - $(window).height() ) {
+      page += 1;
+      listAdapter(page)
+    }
+  });
+});
 
-  $.getJSON('http://127.0.0.1:5000/laws?callback=?', null, function (results) {
-      var dl = $();
-      var dt = $();
+
+var lastChar = "";
+var dl = $();
+var dt = $();
+function listAdapter(page) {
+  $.getJSON('http://127.0.0.1:5000/laws?items=100&page='+page+'&callback=?', null, function (results) {
       
-      var lastChar = "";
       for (var law in results) {
         var short = results[law][0];
         
@@ -19,22 +31,23 @@ $( document ).ready(function() {
         }).append("<div>"+results[law][0]+"</div><div>"+results[law][2]+"</div>").appendTo(dl);
       }
   });
+}
 
-  function getFirstLetter(str) {
-    first = str.substring(0, 1);
-    switch(first) {
-      case 'Ä':
-        return 'A';
-        break;
-      case 'Ö':
-        return 'Ö';
-        break;
-      case 'Ü':
-        return 'Ü';
-        break;
-      default:
-        return first;
-    }
+
+
+function getFirstLetter(str) {
+  first = str.substring(0, 1);
+  switch(first) {
+    case 'Ä':
+      return 'A';
+      break;
+    case 'Ö':
+      return 'Ö';
+      break;
+    case 'Ü':
+      return 'Ü';
+      break;
+    default:
+      return first;
   }
-});
-
+}
