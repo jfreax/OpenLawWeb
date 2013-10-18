@@ -1,6 +1,12 @@
+html, body {
+        height:100%;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+}
+
 body {
         font: bold 20px Helvetica, Arial, sans-serif;
-        margin: 0;
         background: #ddd;
 }
 
@@ -68,10 +74,35 @@ body {
 }
 
 /**
+ * Fix headlines always on top
+ **/
+.headlineContainer {
+/*         position: fixed; */
+/*         padding-left: 50px; */
+}
+
+/**
+ * Classes for different headlines
+ **/
+.headline-1 {
+       font-style:italic;
+       background: #fff;
+}
+
+/**
  * 
  **/
 .loading {
-  position: fixed;
-  left: 75px;
-  top: 97px;
+        position: fixed;
+        left: 75px;
+        top: 97px;
+}
+
+
+
+div.scrollable {
+    position: absolute;
+    top: 40px;
+    bottom: 20px;
+/*     overflow-y: scroll; */
 }

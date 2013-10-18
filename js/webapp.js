@@ -11,9 +11,12 @@
  */
 function LawList( url, container, items ) {
   this.url = url;
-  this.container = $(container);
-  this.containerName = container;
   this.items = items;
+  
+  this.frameName = container;
+  this.frame = $(container);
+  // TODO write correct selector
+  this.container = this.frame.children().first().children().first();
   
   this.parent = this.container.parent();
   this.page = 0; // Number of pages we began to load
@@ -42,7 +45,7 @@ LawList.prototype.initialize = function () {
  */
 LawList.prototype.checkPageEnd = function () {
   var bottom = this.container.position().top + this.container.outerHeight(true);
-  if ( $(window).scrollTop() + $(window).outerHeight() >= bottom * 0.8 ) {
+  if ( $('#lawList').scrollTop() + $('#lawList').outerHeight() >= bottom * 0.8 ) {
     this.page += 1;
     
     if( this.page < this.count / this.items ) {
@@ -75,7 +78,7 @@ LawList.prototype.loadNext = function() {
         
         dd.data('slug', data[law][1]);
         dd.click($.proxy(self.click, self));
-      }
+      } 
       
       // Page finished loading
       self.pageFinished += 1;
@@ -86,10 +89,12 @@ LawList.prototype.loadNext = function() {
       // Approximate overall height of law list
       var loaded = self.pageFinished * self.items;
       var rest = self.count - loaded
-      self.parent.height(
-        self.container.height() + 
+      self.container.next().height(
         rest * (self.container.outerHeight(true) / loaded)
       );
+      
+      // Refresh scrollbar
+      $(".nano").nanoScroller({ flash: true });
   });
 }
 
@@ -128,10 +133,13 @@ HeadlineList.prototype.load = function(slug) {
     
     var data = results.data;
     for(var id in data) {
-        var name = data[id].name;
-        
+        var depth = data[id].depth;
+        if(depth[0] == '-') {
+            depth = depth.substring(1);
+        }
         newDiv = $('<div/>', {
-          text: name
+          text: data[id].name,
+          class: "headline-"+depth
         }).appendTo(self.container);
     }
   });
@@ -145,12 +153,14 @@ $( document ).ready(function() {
   var url = 'http://127.0.0.1:5000';
   
   // Handle law code list
-  var lawList = new LawList(url, '.listContainer', 200);
+  var lawList = new LawList(url, '#listFrame', 200);
   var lawHeadline = new HeadlineList(url, '.headlineContainer');
   lawList.headlineList = lawHeadline;
   
   // Update/Load more on scrolling
-  $(window).scroll($.proxy( lawList.checkPageEnd, lawList ));
+  $('#lawList').scroll($.proxy( lawList.checkPageEnd, lawList ));
+  
+//   $(".nano").nanoScroller({ flash: true });
 });
 
 

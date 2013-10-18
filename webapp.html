@@ -15,6 +15,7 @@
     
     <!-- Custom CSS -->
     <link href="css/webapp.css" rel="stylesheet">
+    <link href="css/nanoscroller.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,14 +27,19 @@
     <section class="wrapper">
       <div class="container">
         <div class="row">
-          <div id="listFrame" class="col-lg-4">
+          <div id="listFrame" class="col-lg-4 scrollable nano" style="padding-right: 0px;">
 <!--             <div class="loading col-lg-4"> -->
 <!--               <img src="img/loading.gif" alt="Loading..." /> -->
 <!--             </div> -->
-            <div class="listContainer">
+            <div id="lawList" class="content overthrow">
+              <div class="listContainer"></div>
+              <div class="listSpacer"></div>
             </div>
           </div>
-          <div class="col-lg-8 headlineContainer">
+          <div class="col-lg-5"></div> <!-- Placeholder, because scrollable is absolute-->
+          <div class="col-lg-7">
+            <div class="col-lg-7 headlineContainer">
+            </div>
           </div>
         </div>
       </div>
@@ -44,5 +50,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/webapp.js"></script>
+    <script src="js/jquery.nanoscroller.js"></script>
+    <script src="js/overthrow.js"></script>
   </body>
 </html>
