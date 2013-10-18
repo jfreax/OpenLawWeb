@@ -3,7 +3,7 @@ $( document ).ready(function() {
   listAdapter(page);
   
   $(window).scroll(function() {
-    if ( $(window).scrollTop() >= $(document).height() - $(window).height() ) {
+    if ( $(window).scrollTop() * 1.2 >= $(document).height() - $(window).height() ) {
       page += 1;
       listAdapter(page)
     }
@@ -17,8 +17,9 @@ var dt = $();
 function listAdapter(page) {
   $.getJSON('http://127.0.0.1:5000/laws?items=100&page='+page+'&callback=?', null, function (results) {
       
-      for (var law in results) {
-        var short = results[law][0];
+      data = results.data;
+      for (var law in data) {
+        var short = data[law][0];
         
         var firstLetter = getFirstLetter(short);
         if( firstLetter != lastChar) {
@@ -27,8 +28,8 @@ function listAdapter(page) {
           dt = $('<dt/>', {text: firstLetter}).appendTo(dl);
         }
         $('<dd/>', {
-          title: results[law][2]
-        }).append("<div>"+results[law][0]+"</div><div>"+results[law][2]+"</div>").appendTo(dl);
+          title: data[law][2]
+        }).append("<div>"+data[law][0]+"</div><div>"+data[law][2]+"</div>").appendTo(dl);
       }
   });
 }
