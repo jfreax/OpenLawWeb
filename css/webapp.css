@@ -56,7 +56,7 @@ dd:hover {
         width: 33%;
         overflow-x: hidden;
         overflow-y: auto;
-        position: absolute;
+/*         position: absolute; */
         
         margin: 12px 0 0 0;
 }

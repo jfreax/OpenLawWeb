@@ -1,9 +1,13 @@
+var listEnd = false;
+var items = 100;
+
+
 $( document ).ready(function() {
   var page = 0;
   listAdapter(page);
   
   $(window).scroll(function() {
-    if ( $(window).scrollTop() * 1.2 >= $(document).height() - $(window).height() ) {
+    if ( $(window).scrollTop() >= ($('.listContainer').position().top+$('.listContainer').outerHeight(true)) * 0.8 ) {
       page += 1;
       listAdapter(page)
     }
@@ -15,14 +19,17 @@ var lastChar = "";
 var dl = $();
 var dt = $();
 function listAdapter(page) {
-  $.getJSON('http://127.0.0.1:5000/laws?items=100&page='+page+'&callback=?', null, function (results) {
-      
+  if(listEnd) {
+    return;
+  }
+  
+  $.getJSON('http://127.0.0.1:5000/laws?items='+items+'&page='+page+'&callback=?', null, function (results) {
       data = results.data;
-      for (var law in data) {
+      for(var law in data) {
         var short = data[law][0];
         
         var firstLetter = getFirstLetter(short);
-        if( firstLetter != lastChar) {
+        if(firstLetter != lastChar) {
           lastChar = firstLetter;
           dl = $('<dl/>').appendTo('.listContainer');
           dt = $('<dt/>', {text: firstLetter}).appendTo(dl);
@@ -30,6 +37,13 @@ function listAdapter(page) {
         $('<dd/>', {
           title: data[law][2]
         }).append("<div>"+data[law][0]+"</div><div>"+data[law][2]+"</div>").appendTo(dl);
+      }
+      
+      var rest = results.count - (page*items+items)
+      if(rest > 0) {
+        $('body').height($('.listContainer').height() + rest*$('div.listContainer > dl > dd').height());
+      } else {
+        listEnd = true;
       }
   });
 }
