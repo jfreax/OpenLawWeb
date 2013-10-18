@@ -1,16 +1,16 @@
-var listEnd = false;
-var items = 100;
-
+var items = 10;
+var count = 0;
+var page = 0;
 
 $( document ).ready(function() {
-  var page = 0;
+  $.getJSON('http://127.0.0.1:5000/land?callback=?', null, function (results) {
+    count = results.data[0].count;
+  });
+  
   listAdapter(page);
   
   $(window).scroll(function() {
-    if ( $(window).scrollTop() >= ($('.listContainer').position().top+$('.listContainer').outerHeight(true)) * 0.8 ) {
-      page += 1;
-      listAdapter(page)
-    }
+    loadMore();
   });
 });
 
@@ -19,11 +19,8 @@ var lastChar = "";
 var dl = $();
 var dt = $();
 function listAdapter(page) {
-  if(listEnd) {
-    return;
-  }
   
-  $.getJSON('http://127.0.0.1:5000/laws?items='+items+'&page='+page+'&callback=?', null, function (results) {
+  $.getJSON('http://127.0.0.1:5000/land/1/laws?items='+items+'&page='+page+'&callback=?', null, function (results) {
       data = results.data;
       for(var law in data) {
         var short = data[law][0];
@@ -39,16 +36,25 @@ function listAdapter(page) {
         }).append("<div>"+data[law][0]+"</div><div>"+data[law][2]+"</div>").appendTo(dl);
       }
       
-      var rest = results.count - (page*items+items)
-      if(rest > 0) {
-        $('body').height($('.listContainer').height() + rest*$('div.listContainer > dl > dd').height());
-      } else {
-        listEnd = true;
-      }
+      // Load one more page if user scrolled enough
+      loadMore();
+      
+      // Approximate new overall height of law list
+      var rest = count - (page*items+items)
+      $('#listFrame').height($('.listContainer').height() + rest * ($('div.listContainer').outerHeight(true) / ((page+1)*items)));
   });
 }
 
-
+function loadMore() {
+  var bottom = $('.listContainer').position().top + $('.listContainer').outerHeight(true);
+  if ( $(window).scrollTop() >= bottom * 0.8 ) {
+    page += 1;
+    
+    if( page < count / items ) {
+      listAdapter(page)
+    }
+  }
+}
 
 function getFirstLetter(str) {
   first = str.substring(0, 1);
