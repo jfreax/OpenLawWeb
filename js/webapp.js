@@ -5,14 +5,17 @@
  * Lazy loading of 'items' elements per page
  * from 'url' via jsonp.
  * 
- * url: Server base url with optional port,
- *      but without trailing slash!
+ * url: Server base url with optional port, but without a trailing slash!
+ * container: CSS selector of div to which new elements are added to
  * items: Elements per page
  */
-function LawList( url, items ) {
+function LawList( url, container, items ) {
   this.url = url;
+  this.container = $(container);
+  this.containerName = container;
   this.items = items;
   
+  this.parent =  this.container.parent();
   this.page = 0; // Number of pages we began to load
   this.pageFinished = 0; // Number of pages finished (incl. DOM)
   this.lastChar = "";
@@ -37,7 +40,7 @@ LawList.prototype.initialize = function () {
  * Check if we need to load more entries.
  */
 LawList.prototype.checkPageEnd = function () {
-  var bottom = $('.listContainer').position().top + $('.listContainer').outerHeight(true);
+  var bottom = this.container.position().top + this.container.outerHeight(true);
   if ( $(window).scrollTop() + $(window).outerHeight() >= bottom * 0.8 ) {
     this.page += 1;
     
@@ -60,7 +63,7 @@ LawList.prototype.loadNext = function() {
         var firstLetter = getFirstLetter(short);
         if(firstLetter != self.lastChar) {
           self.lastChar = firstLetter;
-          dl = $('<dl/>').appendTo('.listContainer');
+          dl = $('<dl/>').appendTo(self.container);
           dt = $('<dt/>', {text: firstLetter}).appendTo(dl);
         }
         $('<dd/>', {
@@ -77,20 +80,29 @@ LawList.prototype.loadNext = function() {
       // Approximate overall height of law list
       var loaded = self.pageFinished * self.items;
       var rest = self.count - loaded
-      $('#listFrame').height(
-        $('.listContainer').height() + 
-        rest * ($('.listContainer').outerHeight(true) / loaded)
+      self.parent.height(
+        self.container.height() + 
+        rest * (self.container.outerHeight(true) / loaded)
       );
   });
 }
 
+/**
+ * Represents a list of law headline.
+ * 
+ * url: Server base url with optional port,
+ *      but without trailing slash!
+ */
+function HeadlineList( url ) {
+  this.url = url;
+}
 
 /**
  * Ready!
  */
 $( document ).ready(function() {
   // Handle law code list
-  var lawList = new LawList( 'http://127.0.0.1:5000', 200 );
+  var lawList = new LawList( 'http://127.0.0.1:5000', '.listContainer', 200 );
   
   // Update/Load more on scrolling
   $(window).scroll($.proxy( lawList.checkPageEnd, lawList ));
