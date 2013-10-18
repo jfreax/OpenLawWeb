@@ -1,4 +1,4 @@
-var items = 10;
+var items = 300;
 var count = 0;
 var page = 0;
 
@@ -46,8 +46,9 @@ function listAdapter(page) {
 }
 
 function loadMore() {
+
   var bottom = $('.listContainer').position().top + $('.listContainer').outerHeight(true);
-  if ( $(window).scrollTop() >= bottom * 0.8 ) {
+  if ( $(window).scrollTop() + $(window).outerHeight() >= bottom * 0.8 ) {
     page += 1;
     
     if( page < count / items ) {

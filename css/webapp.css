@@ -3,61 +3,66 @@ body {
         margin: 0;
         background: #ddd;
 }
-dl {
-        margin: 0;
-        min-height: 1px;
-        overflow: hidden;
+
+/**
+ * This is a sublist for one letter
+ **/
+.listContainer dl {
         padding: 32px 0 0 0;
         position: relative;
-        margin: 12px 0 0 12px;
-
 }
-dt {
+
+/**
+ * We don't want top margin here.
+ * Override bootstraps default margin.
+ **/
+.listContainer dl:first-child {
+        margin-top: 0;
+}
+
+/**
+ * Represents a one letter headline and serves as a devider.
+ **/
+.listContainer dt {
+        position: absolute;
+        padding: 2px 0 0 12px;
+        min-height: 1px;
+        
+        top: 0;
+        bottom: auto;
+        width: 100%;
+        
         background: #fff;
         color: #37b3f3;
-        padding: 2px 0 0 12px;
-        position: absolute;
-
-        bottom: auto;
-        min-height: 1px;
-        top: 0;
-        width: 100%;
 }
 
-dd {
+/**
+ * Entry for every single law code.
+ **/
+.listContainer dd {
         background: #eee;
-/*         font: bold 20px/45px Helvetica, Arial, sans-serif; */
         margin: 0;
-        padding: 0 0 0 12px;        
+        padding: 0 12px 0 12px;
+        cursor: pointer;
 }
 
-dd > div:last-child {
+/**
+ * Entry for every single law code.
+ **/
+.listContainer dd:hover {
+        background: #37b3f3;
+}
+
+/**
+ * Every law entry consists of two divs.
+ * First one is a big abbreviation of the law name.
+ * Second one is then full name written with a much smaller font.
+ * Here we define the second div.
+ **/
+.listContainer dd > div:last-child {
         font: 12px/14px Helvetica, Arial, sans-serif;
         
         overflow: hidden;
         max-height: 3.6em;
         line-height: 1.8em;
 }
-
-dl:first-child {
-        margin-top: 0;
-}
-
-dl:last-child {
-        margin-bottom: 12px;
-}
-
-dd:hover {
-        background: #37b3f3;
-}
-
-.listContainer {
-/*         height: 100%; */
-        width: 33%;
-        overflow-x: hidden;
-        overflow-y: auto;
-/*         position: absolute; */
-        
-        margin: 12px 0 0 0;
-}
- 
