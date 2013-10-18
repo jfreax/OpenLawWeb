@@ -15,10 +15,10 @@ function LawList( url, container, items ) {
   this.containerName = container;
   this.items = items;
   
-  this.parent =  this.container.parent();
+  this.parent = this.container.parent();
   this.page = 0; // Number of pages we began to load
   this.pageFinished = 0; // Number of pages finished (incl. DOM)
-  this.lastChar = "";
+  this.lastChar = undefined;
   
   this.initialize();
 }
@@ -28,6 +28,7 @@ function LawList( url, container, items ) {
  */
 LawList.prototype.initialize = function () {
   var self = this;
+  
   // Get number of all law codes
   $.getJSON(this.url+'/land?callback=?', null, function (results) {
     self.count = results.data[0].count;
@@ -61,14 +62,19 @@ LawList.prototype.loadNext = function() {
         var short = data[law][0];
         
         var firstLetter = getFirstLetter(short);
+        // Begin new sublist with new letter as header
         if(firstLetter != self.lastChar) {
           self.lastChar = firstLetter;
           dl = $('<dl/>').appendTo(self.container);
           dt = $('<dt/>', {text: firstLetter}).appendTo(dl);
         }
-        $('<dd/>', {
+        
+        dd = $('<dd/>', {
           title: data[law][2]
         }).append("<div>"+data[law][0]+"</div><div>"+data[law][2]+"</div>").appendTo(dl);
+        
+        dd.data('slug', data[law][1]);
+        dd.click($.proxy(self.click, self));
       }
       
       // Page finished loading
@@ -88,21 +94,60 @@ LawList.prototype.loadNext = function() {
 }
 
 /**
+ * Handle click
+ */
+LawList.prototype.click = function(event) {
+  if(this.headlineList != undefined) {
+    this.headlineList.load($(event.currentTarget).data('slug'));
+  }
+}
+
+/**
  * Represents a list of law headline.
  * 
- * url: Server base url with optional port,
- *      but without trailing slash!
+ * url: Server base url with optional port, but without trailing slash!
+ * container: CSS selector of div to which new elements are added to
  */
-function HeadlineList( url ) {
+function HeadlineList( url, container ) {
   this.url = url;
+  this.containerName = container;
+  this.container = $(container);
 }
+
+/**
+ * Load list of headlines and render them
+ * 
+ * slug: Slug for jsonp url
+ */
+HeadlineList.prototype.load = function(slug) {
+  var self = this;
+  
+  $.getJSON(this.url+'/land/1/laws/'+slug+'?callback=?', null, function (results) {
+    // Clear old headlines
+    self.container.empty();
+    
+    var data = results.data;
+    for(var id in data) {
+        var name = data[id].name;
+        
+        newDiv = $('<div/>', {
+          text: name
+        }).appendTo(self.container);
+    }
+  });
+}
+
 
 /**
  * Ready!
  */
 $( document ).ready(function() {
+  var url = 'http://127.0.0.1:5000';
+  
   // Handle law code list
-  var lawList = new LawList( 'http://127.0.0.1:5000', '.listContainer', 200 );
+  var lawList = new LawList(url, '.listContainer', 200);
+  var lawHeadline = new HeadlineList(url, '.headlineContainer');
+  lawList.headlineList = lawHeadline;
   
   // Update/Load more on scrolling
   $(window).scroll($.proxy( lawList.checkPageEnd, lawList ));

@@ -66,3 +66,12 @@ body {
         max-height: 3.6em;
         line-height: 1.8em;
 }
+
+/**
+ * 
+ **/
+.loading {
+  position: fixed;
+  left: 75px;
+  top: 97px;
+}
