@@ -2,15 +2,16 @@
 /**
  * Represents a list of laws.
  * 
- * Lazy loading of 'itemsPerPage' elements per page
+ * Lazy loading of 'items' elements per page
  * from 'url' via jsonp.
  * 
  * url: Server base url with optional port,
  *      but without trailing slash!
+ * items: Elements per page
  */
-function LawList( url, itemsPerPage ) {
+function LawList( url, items ) {
   this.url = url;
-  this.items = itemsPerPage;
+  this.items = items;
   
   this.page = 0; // Number of pages we began to load
   this.pageFinished = 0; // Number of pages finished (incl. DOM)
@@ -73,7 +74,7 @@ LawList.prototype.loadNext = function() {
       // Load one more page if user scrolled enough
       self.checkPageEnd();
       
-      // Approximate new overall height of law list
+      // Approximate overall height of law list
       var loaded = self.pageFinished * self.items;
       var rest = self.count - loaded
       $('#listFrame').height(
