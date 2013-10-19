@@ -59,6 +59,10 @@ body {
         background: #37b3f3;
 }
 
+.listContainer dd:active {
+        background: #30abeb;
+}
+
 /**
  * Every law entry consists of two divs.
  * First one is a big abbreviation of the law name.
@@ -80,7 +84,7 @@ body {
 }
 
 /**
- * Fix headlines always on top
+ * Law headlines
  **/
 .headlineContainer {
 /*         position: fixed; */
@@ -88,11 +92,61 @@ body {
 }
 
 /**
- * Classes for different headlines
+ * Classes for different headline sizes
  **/
-.headline-1 {
-       font-style:italic;
-       background: #fff;
+.headlineContainer h1, .headlineContainer h2 {
+        font: 20px Helvetica, Arial, sans-serif;
+        font-weight: 200;
+        line-height: 1.5;
+        padding: 2px 0 0 12px;
+        margin-bottom: 2px;     
+}
+
+.headlineContainer h2,
+.headlineContainer h3,
+.headlineContainer h4,
+.headlineContainer h5,
+.headlineContainer h6 {
+        background: #eee;
+        margin: 0px;
+        padding: 0 0 0 8px;
+        line-height: 1.6;
+}
+
+
+.headlineContainer h1 {
+        font-size: 18px;
+        font-style: italic;
+        background: #fff;
+        margin: 0px;
+        
+        border-left: 6px solid #7979FF; 
+}
+
+.headlineContainer h2 {
+        font-size: 18px;
+        font-style: bold;
+        margin-left: 6px;
+        
+        border-left: 6px solid #32DF00;
+}
+
+.headlineContainer h3 {
+        font-size: 12px;
+        margin-left: 12px;
+        border-left: 6px solid #DDB791;
+}
+
+.headlineContainer h4 {
+        font-size: 12px;
+        margin-left: 18px;
+        border-left: 6px solid #FFD34F;
+}
+
+.headlineContainer h5 {
+        font-size: 12px;
+        margin-left: 24px;
+        border-left: 6px solid #B05F3C;
 }
 
 /**
