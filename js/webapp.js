@@ -93,8 +93,10 @@ LawList.prototype.loadNext = function() {
         rest * (self.container.outerHeight(true) / loaded)
       );
       
-      // Refresh scrollbar
+      // Refresh scrollbar and touch scroll handler
       $(".nano").nanoScroller({ flash: true });
+      $("#lawList").removeOverscroll();
+      $("#lawList").overscroll({showThumbs: false});
   });
 }
 
@@ -161,6 +163,7 @@ $( document ).ready(function() {
   
   // Update/Load more on scrolling
   $('#lawList').scroll($.proxy( lawList.checkPageEnd, lawList ));
+  
 });
 
 
