@@ -6,7 +6,6 @@ html, body {
 }
 
 body {
-        font: bold 20px Helvetica, Arial, sans-serif;
         background: #ddd;
 }
 
@@ -14,6 +13,7 @@ body {
  * This is a sublist for one letter
  **/
 .listContainer dl {
+        font: bold 20px Helvetica, Arial, sans-serif;
         padding: 32px 0 0 0;
         position: relative;
 }
@@ -63,7 +63,13 @@ body {
  * Every law entry consists of two divs.
  * First one is a big abbreviation of the law name.
  * Second one is then full name written with a much smaller font.
- * Here we define the second div.
+ **/
+.listContainer dd > div:first-child {
+        font: bold 20px Helvetica, Arial, sans-serif;
+}
+
+/**
+ *  Here we define the second div.
  **/
 .listContainer dd > div:last-child {
         font: 12px/14px Helvetica, Arial, sans-serif;
