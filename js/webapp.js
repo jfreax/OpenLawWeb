@@ -159,8 +159,6 @@ $( document ).ready(function() {
   
   // Update/Load more on scrolling
   $('#lawList').scroll($.proxy( lawList.checkPageEnd, lawList ));
-  
-//   $(".nano").nanoScroller({ flash: true });
 });
 
 
