@@ -1,12 +1,26 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+
 html, body {
-        height:100%;
         margin: 0;
         padding: 0;
-        overflow: auto;
 }
 
 body {
         background: #ddd;
+}
+
+/**
+ * Frame for law list view to set size and position of list
+ **/
+div#listFrame {
+        position: fixed;
+        width: 30%;
+        float: left;
 }
 
 /**
@@ -31,7 +45,7 @@ body {
  **/
 .listContainer dt {
         position: absolute;
-        padding: 2px 0 0 12px;
+        padding: 2px 0 2px 12px;
         min-height: 1px;
         
         top: 0;
@@ -93,8 +107,15 @@ body {
         line-height: 1.8em;
 }
 
-#lawList {
-/*         position: relative; */
+
+/**
+ * Frame for headline view.
+ * 
+ * Set size and position.
+ **/
+div#headlineFrame {
+        width: 68%;
+        float: right;
 }
 
 /**
@@ -125,8 +146,8 @@ body {
         margin: 0px;
         padding: 0 0 0 8px;
         line-height: 1.6;
+        font-weight: 300;
 }
-
 
 .headlineContainer h1 {
         font-size: 18px;
@@ -172,7 +193,6 @@ body {
         top: 97px;
 }
 
-
 /**
  * Scrollable div
  **/
@@ -182,11 +202,10 @@ div.scrollable {
         bottom: 20px;
 }
 
-
 /**
  * Custom scrollbar
  **/
-      .nano {
+.nano {
         position : relative;
         overflow : hidden;
 }
@@ -237,4 +256,121 @@ div.scrollable {
 .nano:hover > .pane, .pane.active, .pane.flashed {
         visibility : visible\9; /* Target only IE7 and IE8 with this hack */
         opacity    : 0.99;
+}
+
+/*
+ * Bootstraps container class
+ **/
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: " ";
+}
+
+.container:after {
+  clear: both;
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: " ";
+}
+
+.container:after {
+  clear: both;
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: " ";
+}
+
+.container:after {
+  clear: both;
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: " ";
+}
+
+.container:after {
+  clear: both;
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: " ";
+}
+
+.container:after {
+  clear: both;
+}
+
+/*
+ * Bootstraps row
+ **/
+.row {
+  padding: 40px 0;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
 }
