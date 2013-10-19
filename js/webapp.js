@@ -134,10 +134,12 @@ HeadlineList.prototype.load = function(slug) {
     var data = results.data;
     for(var id in data) {
         var depth = data[id].depth;
-        depth = Math.abs(depth);
-        newDiv = $('<h'+depth+'/>', {
+        headSize = Math.abs(depth);
+        newHeadline = $('<h'+headSize+'/>', {
           text: data[id].name
         }).appendTo(self.container);
+        
+        newHeadline.data('depth', depth);
     }
   });
 }
