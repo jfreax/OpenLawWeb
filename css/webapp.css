@@ -59,8 +59,18 @@ body {
         background: #37b3f3;
 }
 
+/**
+ * Color while pressing.
+ **/
 .listContainer dd:active {
         background: #30abeb;
+}
+
+/**
+ * Style for active element.
+ **/
+.listContainer dd.activated {
+        background: #37b3f3;
 }
 
 /**

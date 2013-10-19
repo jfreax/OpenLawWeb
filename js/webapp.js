@@ -103,6 +103,9 @@ LawList.prototype.loadNext = function() {
  */
 LawList.prototype.click = function(event) {
   if(this.headlineList != undefined) {
+    // Visualize current selected item
+    $('.listContainer dd.activated').removeClass('activated');
+    $(event.currentTarget).addClass('activated');
     this.headlineList.load($(event.currentTarget).data('slug'));
   }
 }
